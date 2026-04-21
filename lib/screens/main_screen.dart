@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/screens/account_screen.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
+import '../styles/app_colors.dart';
 
 class MainScreen extends StatefulWidget {
   final Map<String, dynamic> user;
@@ -13,7 +14,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 3;
+  int _currentIndex = 4;
 
   late final List<Widget> _screens;
 
@@ -21,7 +22,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _screens = [
-      const HomeScreen(),
+      const EventScreen(),
+      const CalendarScreen(),
       const ShopScreen(),
       const RewardsScreen(),
       BlocProvider(
@@ -43,12 +45,17 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        backgroundColor: AppColors.blue,
+        selectedItemColor: AppColors.white,
+        unselectedItemColor: AppColors.blueExtraLight,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.event),
+            icon: Icon(Icons.card_membership),
             label: 'Мероприятия',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.event),
+            label: 'Календарь',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
@@ -69,12 +76,21 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 // Временные заглушки для других экранов
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class EventScreen extends StatelessWidget {
+  const EventScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text('Главный экран'));
+  }
+}
+
+class CalendarScreen extends StatelessWidget {
+  const CalendarScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Мои мероприятия'));
   }
 }
 

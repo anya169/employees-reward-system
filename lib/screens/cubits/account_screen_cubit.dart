@@ -6,6 +6,9 @@ class AccountCubit extends Cubit<AccountState> {
       : super(AccountInfoState(
         fullname: user['full_name'],
         points: user['points'] ?? 0,
+        currentPoints: user['current_points'] ?? 0,
+        branch: user['branch'],
+        position: user['position']
       )
   );
 }

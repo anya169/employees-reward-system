@@ -86,7 +86,6 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> login() async {
     final currentState = state;
     if (currentState is! AuthFormDataState) return;
-
     if (!_validateForm(currentState)) return;
 
     _lastFormState = currentState;

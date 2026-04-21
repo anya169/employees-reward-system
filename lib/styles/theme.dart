@@ -3,10 +3,11 @@ import 'app_colors.dart';
 
 class AppTheme {
   static const TextTheme _textTheme = TextTheme(
-    displayLarge: TextStyle(fontSize: 32, color: AppColors.blue),
-    bodyLarge: TextStyle(fontSize: 16, color: AppColors.blue),
-    bodyMedium: TextStyle(fontSize: 14, color: AppColors.blue),
-    labelMedium: TextStyle(fontSize: 16),
+    displayLarge: TextStyle(fontSize: 32, color: AppColors.white),
+    displayMedium: TextStyle(fontSize: 24, color: AppColors.white),
+    bodyLarge: TextStyle(fontSize: 18, color: AppColors.white),
+    bodyMedium: TextStyle(fontSize: 16, color: AppColors.white),
+    labelMedium: TextStyle(fontSize: 14, color: AppColors.white),
     labelSmall: TextStyle(fontSize: 14, color: AppColors.grey),
   );
 
