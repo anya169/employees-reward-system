@@ -26,15 +26,17 @@ class AccountScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is AccountInfoState) {
             return Padding(
-                padding: const EdgeInsets.only(top: 48.0, left: 24, right: 24),
-                child: InfoCard(
-                  label: state.fullname,
-                    content:
+                padding: const EdgeInsets.only(top: 72, left: 24, right: 24),
+                child: Column(
+                  spacing: 12,
+                  children: [
+                    InfoCard(
+                      label: state.fullname,
+                      content:
                       Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
-
                           spacing: 8,
                           children: [
                             if (state.branch != null)
@@ -49,7 +51,74 @@ class AccountScreen extends StatelessWidget {
                               ),
                           ]
                       ),
+                    ),
+                    Divider(
+                      color: AppColors.white,
+                      thickness: 1,
+                    ),
+                    InfoCard(
+                      label: "Мои достижения",
+                      content:
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 8,
+                          children: [
+                            Text(
+                              "Всего накоплено баллов: ${state.points}",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              "Текущее количество баллов: ${state.currentPoints}",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                          ]
+                      ),
+                    ),
+                    InfoCard(
+                      label: "Мои баллы",
+                      content:
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 8,
+                          children: [
+                              Text(
+                                "Всего накоплено баллов: ${state.points}",
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              Text(
+                                "Текущее количество баллов: ${state.currentPoints}",
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                          ]
+                      ),
+                    ),
+                    InfoCard(
+                      label: "История начислений",
+                      content:
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 8,
+                          children: [
+                            Text(
+                              "Всего накоплено баллов: ${state.points}",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            Text(
+                              "Текущее количество баллов: ${state.currentPoints}",
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                          ]
+                      ),
                     )
+                  ],
+                )
+
 
               );
           }
