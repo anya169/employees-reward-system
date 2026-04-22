@@ -13,12 +13,12 @@ class EventScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.blueExtraLight,
-      body: BlocBuilder<EventCubit, EventState>(
+      body: BlocBuilder<EventsCubit, EventsState>(
         builder: (context, state) {
-          if (state is EventLoadingState){
+          if (state is EventsLoadingState){
             return const Center(child: CircularProgressIndicator());
           }
-          if (state is EventInfoState) {
+          if (state is EventsInfoState) {
             final events = state.eventsArray;
             if (events.isEmpty){
               return Center(
@@ -26,7 +26,7 @@ class EventScreen extends StatelessWidget {
               );
             } else {
               return Padding(
-                padding: const EdgeInsets.only(top: 60, left: 24, right: 24),
+                padding: const EdgeInsets.only(top: 60, left: 12, right: 12),
                 child: ListView.builder(
                   itemCount: events.length,
                   itemBuilder: (context, index) {

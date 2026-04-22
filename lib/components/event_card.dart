@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/event_info_screen.dart';
 import '../styles/app_colors.dart';
 import 'package:intl/intl.dart';
 
@@ -39,13 +40,12 @@ class EventCard extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           // Переход на детальный экран с ID
-          print('Clicked on event with ID: $id');
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => EventDetailScreen(eventId: id),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EventInfoScreen(id: id, name: name, description: description, imageName: imageName, eventPoints: eventPoints, date: _formatDate(date)),
+            ),
+          );
         },
         child:
           Container(

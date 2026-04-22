@@ -57,7 +57,7 @@ class AuthScreen extends StatelessWidget {
                 style: const TextStyle(color: Colors.red),
               ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'Логин',
@@ -85,7 +85,7 @@ class AuthScreen extends StatelessWidget {
                 context.read<AuthCubit>().passwordChanged(value);
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
             ElevatedButton(
               style: AppTheme.primaryButton,
               onPressed: () {

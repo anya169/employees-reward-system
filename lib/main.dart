@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => AuthCubit(authRepository)),
         BlocProvider(create: (context) => AccountCubit(user: {})),
-        BlocProvider(create: (context) => EventCubit(eventsRepository))
+        BlocProvider(create: (context) => EventsCubit(eventsRepository))
       ],
       child:
       MaterialApp(

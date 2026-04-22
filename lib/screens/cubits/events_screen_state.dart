@@ -1,11 +1,11 @@
-abstract class EventState {}
+abstract class EventsState {}
 
-class EventLoadingState extends EventState {}
+class EventsLoadingState extends EventsState {}
 
-class EventInfoState extends EventState {
+class EventsInfoState extends EventsState {
   final List<Map<String, dynamic>> eventsArray;
 
-  EventInfoState({
+  EventsInfoState({
     required this.eventsArray
   });
 }
