@@ -26,7 +26,7 @@ class AccountScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is AccountInfoState) {
             return Padding(
-                padding: const EdgeInsets.only(top: 72, left: 24, right: 24),
+                padding: const EdgeInsets.only(top: 60, left: 24, right: 24),
                 child: Column(
                   spacing: 12,
                   children: [

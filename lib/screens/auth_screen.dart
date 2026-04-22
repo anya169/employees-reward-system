@@ -48,7 +48,7 @@ class AuthScreen extends StatelessWidget {
           children: [
             Text(
               'Вход',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: Theme.of(context).textTheme.displaySmall,
             ),
 
             if (state.formError != null)
@@ -64,6 +64,7 @@ class AuthScreen extends StatelessWidget {
                 errorText: state.usernameError,
                 hintText: 'Введите ваш логин',
               ),
+              style: Theme.of(context).textTheme.bodySmall,
               keyboardType: TextInputType.text,
               initialValue: state.username,
               onChanged: (value) {
@@ -76,6 +77,7 @@ class AuthScreen extends StatelessWidget {
                 errorText: state.passwordError,
                 hintText: 'Введите ваш пароль',
               ),
+              style: Theme.of(context).textTheme.bodySmall,
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               initialValue: state.password,

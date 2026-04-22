@@ -17,9 +17,6 @@ class AuthRepository {
           'p_password': password,
         },
       );
-      print('Raw response from RPC: $response');  // ← что приходит?
-      print('Response type: ${response.runtimeType}');  // ← какого типа?
-      print('Response isNotEmpty: ${response != null && response.isNotEmpty}');
       if (response != null && response.isNotEmpty) {
         await _saveUserId(response[0]['id']);
         return response[0];

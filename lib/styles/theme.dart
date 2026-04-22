@@ -5,8 +5,10 @@ class AppTheme {
   static const TextTheme _textTheme = TextTheme(
     displayLarge: TextStyle(fontSize: 32, color: AppColors.white),
     displayMedium: TextStyle(fontSize: 24, color: AppColors.white),
+    displaySmall: TextStyle(fontSize: 32, color: AppColors.blue),
     bodyLarge: TextStyle(fontSize: 18, color: AppColors.white),
     bodyMedium: TextStyle(fontSize: 16, color: AppColors.white),
+    bodySmall: TextStyle(fontSize: 18, color: AppColors.blue),
     labelMedium: TextStyle(fontSize: 14, color: AppColors.white),
     labelSmall: TextStyle(fontSize: 14, color: AppColors.grey),
   );
@@ -29,6 +31,7 @@ class AppTheme {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
       ),
+
       filled: true,
       fillColor: AppColors.white,
       hintStyle: _textTheme.labelSmall,

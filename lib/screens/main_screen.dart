@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/screens/account_screen.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
 import '../styles/app_colors.dart';
+import 'events_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final Map<String, dynamic> user;
@@ -51,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.card_membership),
-            label: 'Мероприятия',
+            label: 'События',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.event),
@@ -75,15 +76,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-// Временные заглушки для других экранов
-class EventScreen extends StatelessWidget {
-  const EventScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Главный экран'));
-  }
-}
 
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
