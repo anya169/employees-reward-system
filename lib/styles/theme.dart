@@ -9,6 +9,7 @@ class AppTheme {
     bodyLarge: TextStyle(fontSize: 18, color: AppColors.white),
     bodyMedium: TextStyle(fontSize: 16, color: AppColors.white),
     bodySmall: TextStyle(fontSize: 18, color: AppColors.blue),
+    labelLarge: TextStyle(fontSize: 14, color: AppColors.blue),
     labelMedium: TextStyle(fontSize: 14, color: AppColors.white),
     labelSmall: TextStyle(fontSize: 14, color: AppColors.grey),
   );
@@ -54,7 +55,7 @@ class AppTheme {
     foregroundColor: AppColors.white,
     textStyle: lightTheme.textTheme.labelMedium,
     minimumSize: const Size(120, 24),
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
     ),
@@ -64,7 +65,7 @@ class AppTheme {
     foregroundColor: AppColors.blue,
     backgroundColor: AppColors.white,
     side: const BorderSide(color: AppColors.blue),
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
     ),
@@ -73,7 +74,7 @@ class AppTheme {
   static ButtonStyle tertiaryButton = ElevatedButton.styleFrom(
     backgroundColor: AppColors.grey,
     foregroundColor: AppColors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
     ),

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/repositories/auth_repository.dart';
 import 'package:individual_project/repositories/events_repository.dart';
+import 'package:individual_project/repositories/shop_repository.dart';
 import 'package:individual_project/screens/auth_screen_provider.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/auth_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/events_screen_cubit.dart';
+import 'package:individual_project/screens/cubits/shop_screen_cubit.dart';
 import 'package:individual_project/styles/theme.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -27,12 +29,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final authRepository = AuthRepository();
     final eventsRepository = EventRepository();
+    final shopRepository = ShopRepository();
 
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit(authRepository)),
         BlocProvider(create: (context) => AccountCubit(user: {})),
-        BlocProvider(create: (context) => EventsCubit(eventsRepository))
+        BlocProvider(create: (context) => EventsCubit(eventsRepository)),
+        BlocProvider(create: (context) => ShopCubit(shopRepository))
       ],
       child:
       MaterialApp(

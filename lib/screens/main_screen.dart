@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/screens/account_screen.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
+import 'package:individual_project/screens/shop_screen.dart';
 import '../styles/app_colors.dart';
 import 'events_screen.dart';
 
@@ -87,14 +88,6 @@ class CalendarScreen extends StatelessWidget {
   }
 }
 
-class ShopScreen extends StatelessWidget {
-  const ShopScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Магазин'));
-  }
-}
 
 class RewardsScreen extends StatelessWidget {
   const RewardsScreen({super.key});
