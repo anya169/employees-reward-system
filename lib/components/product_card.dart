@@ -50,7 +50,7 @@ class ProductCard extends StatelessWidget {
                   thickness: 1,
                 ),
                 Container(
-                  padding: EdgeInsets.all(4),
+                  padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: AppColors.blue,
                     border: Border.all(color: AppColors.blue, width: 2),

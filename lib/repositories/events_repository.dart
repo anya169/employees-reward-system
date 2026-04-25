@@ -10,7 +10,7 @@ class EventRepository {
   Future<List<Map<String, dynamic>>> getCurrentEvents() async {
     try {
       final response = await _supabase.rpc(
-          'get_events'
+          'get_upcoming_events'
       );
 
       if (response != null && response.isNotEmpty) {

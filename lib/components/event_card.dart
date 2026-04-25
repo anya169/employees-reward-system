@@ -10,6 +10,7 @@ class EventCard extends StatelessWidget {
   final String imageName;
   final int eventPoints;
   final String date;
+  final String category;
 
   const EventCard({
     super.key,
@@ -18,7 +19,8 @@ class EventCard extends StatelessWidget {
     required this.description,
     required this.imageName,
     required this.eventPoints,
-    required this.date
+    required this.date,
+    required this.category
   });
 
   String _formatDate(String isoString) {
@@ -62,6 +64,18 @@ class EventCard extends StatelessWidget {
                 spacing: 4,
                 children: [
                   Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: AppColors.blue,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Text(
+                      category,
+                      style: Theme.of(context).textTheme.bodyLarge
+                    ),
+                  ),
+                  Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
@@ -92,6 +106,7 @@ class EventCard extends StatelessWidget {
                             Text(
                               "$name | ${_formatDate(date)}",
                               style: Theme.of(context).textTheme.displayMedium,
+                              textAlign: TextAlign.left,
                             ),
                             Text(
                               _truncateDescription(description, 100),

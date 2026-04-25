@@ -40,6 +40,7 @@ class EventScreen extends StatelessWidget {
                         imageName: event['image_name'],
                         date: event['event_date'],
                         eventPoints: event['points'],
+                        category: event["category_name"],
                       ),
                     );
                   },
