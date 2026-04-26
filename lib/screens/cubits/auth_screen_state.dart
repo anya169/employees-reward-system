@@ -38,8 +38,6 @@ class AuthFormDataState extends AuthState {
   }
 }
 
-
-
 // Состояние успеха - передаем авторизованного пользователя
 class AuthSuccessState extends AuthState {
   final Map<String, dynamic> user;

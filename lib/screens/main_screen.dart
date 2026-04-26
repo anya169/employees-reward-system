@@ -9,8 +9,9 @@ import 'events_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final Map<String, dynamic> user;
+  final AccountCubit accountCubit;
 
-  const MainScreen({super.key, required this.user});
+  const MainScreen({super.key, required this.user, required this.accountCubit});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -29,8 +30,8 @@ class _MainScreenState extends State<MainScreen> {
       const CalendarScreen(),
       const ShopScreen(),
       const RewardsScreen(),
-      BlocProvider(
-        create: (context) => AccountCubit(user: widget.user),
+      BlocProvider.value(
+        value: widget.accountCubit,
         child: const AccountScreen(),
       ),
     ];

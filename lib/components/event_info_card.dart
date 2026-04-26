@@ -166,9 +166,9 @@ class _EventInfoCardState extends State<EventInfoCard> {
             ElevatedButton(
               style: AppTheme.tertiaryButton,
               onPressed: _removeFromCalendar,
-              child: const Text(
+              child: Text(
                 "Удалить из календаря",
-                style: TextStyle(color: AppColors.white),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
             )
           else

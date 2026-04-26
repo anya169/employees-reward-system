@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/repositories/auth_repository.dart';
+import 'package:individual_project/repositories/code_repository.dart';
 import 'package:individual_project/repositories/events_repository.dart';
 import 'package:individual_project/repositories/shop_repository.dart';
 import 'package:individual_project/screens/auth_screen_provider.dart';
@@ -32,16 +33,17 @@ class MyApp extends StatelessWidget {
     final authRepository = AuthRepository();
     final eventsRepository = EventRepository(authRepository);
     final shopRepository = ShopRepository();
+    final codeRepository = CodeRepository();
 
     return MultiProvider(
         providers: [
           Provider<EventRepository>.value(value: eventsRepository),
+          Provider<CodeRepository>.value(value: codeRepository),
         ],
         child:
         MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => AuthCubit(authRepository)),
-            BlocProvider(create: (context) => AccountCubit(user: {})),
             BlocProvider(create: (context) => EventsCubit(eventsRepository)),
             BlocProvider(create: (context) => ShopCubit(shopRepository)),
             BlocProvider(create: (context) => CalendarCubit(eventsRepository))

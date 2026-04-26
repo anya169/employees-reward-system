@@ -3,6 +3,7 @@ import "package:flutter_bloc/flutter_bloc.dart";
 import "package:individual_project/screens/cubits/auth_screen_cubit.dart";
 import "package:individual_project/screens/cubits/auth_screen_state.dart";
 import "../styles/theme.dart";
+import "cubits/account_screen_cubit.dart";
 import "main_screen.dart";
 
 class AuthScreen extends StatelessWidget {
@@ -14,10 +15,11 @@ class AuthScreen extends StatelessWidget {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccessState) {
+            final accountCubit = AccountCubit(user: state.user);
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => MainScreen(user: state.user),
+                builder: (context) => MainScreen(user: state.user, accountCubit: accountCubit),
               ),
             );
           }

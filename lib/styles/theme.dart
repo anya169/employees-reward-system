@@ -32,7 +32,7 @@ class AppTheme {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-
+      labelStyle: _textTheme.bodySmall,
       filled: true,
       fillColor: AppColors.white,
       hintStyle: _textTheme.labelSmall,
@@ -62,9 +62,10 @@ class AppTheme {
   );
 
   static ButtonStyle secondaryButton = OutlinedButton.styleFrom(
-    foregroundColor: AppColors.blue,
+    foregroundColor: AppColors.white,
     textStyle: lightTheme.textTheme.labelLarge,
     side: const BorderSide(color: AppColors.blue),
+    minimumSize: const Size(120, 24),
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
@@ -74,6 +75,7 @@ class AppTheme {
   static ButtonStyle tertiaryButton = ElevatedButton.styleFrom(
     backgroundColor: AppColors.grey,
     foregroundColor: AppColors.white,
+    minimumSize: const Size(120, 24),
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),

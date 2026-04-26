@@ -126,4 +126,6 @@ class AuthCubit extends Cubit<AuthState> {
       emit(clearedState);
     }
   }
+
+
 }
