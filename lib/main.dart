@@ -6,9 +6,11 @@ import 'package:individual_project/repositories/shop_repository.dart';
 import 'package:individual_project/screens/auth_screen_provider.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/auth_screen_cubit.dart';
+import 'package:individual_project/screens/cubits/calendar_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/events_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/shop_screen_cubit.dart';
 import 'package:individual_project/styles/theme.dart';
+import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -28,22 +30,29 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authRepository = AuthRepository();
-    final eventsRepository = EventRepository();
+    final eventsRepository = EventRepository(authRepository);
     final shopRepository = ShopRepository();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AuthCubit(authRepository)),
-        BlocProvider(create: (context) => AccountCubit(user: {})),
-        BlocProvider(create: (context) => EventsCubit(eventsRepository)),
-        BlocProvider(create: (context) => ShopCubit(shopRepository))
-      ],
-      child:
-      MaterialApp(
-        themeMode: ThemeMode.system,
-        theme: AppTheme.lightTheme,
-        home: AuthScreenProvider(authRepository: authRepository),
-      )
+    return MultiProvider(
+        providers: [
+          Provider<EventRepository>.value(value: eventsRepository),
+        ],
+        child:
+        MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => AuthCubit(authRepository)),
+            BlocProvider(create: (context) => AccountCubit(user: {})),
+            BlocProvider(create: (context) => EventsCubit(eventsRepository)),
+            BlocProvider(create: (context) => ShopCubit(shopRepository)),
+            BlocProvider(create: (context) => CalendarCubit(eventsRepository))
+          ],
+          child:
+          MaterialApp(
+            themeMode: ThemeMode.system,
+            theme: AppTheme.lightTheme,
+            home: AuthScreenProvider(authRepository: authRepository),
+          )
+        )
     );
   }
 }

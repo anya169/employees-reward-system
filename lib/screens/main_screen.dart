@@ -4,6 +4,7 @@ import 'package:individual_project/screens/account_screen.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
 import 'package:individual_project/screens/shop_screen.dart';
 import '../styles/app_colors.dart';
+import 'calendar_screen.dart';
 import 'events_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -77,16 +78,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-
-
-class CalendarScreen extends StatelessWidget {
-  const CalendarScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Мои мероприятия'));
-  }
-}
 
 
 class RewardsScreen extends StatelessWidget {

@@ -31,7 +31,7 @@ class AuthRepository {
 
   // Выход из учетки
   Future<void> logout() async {
-    await _clearUserId();  // очищаем сохранённый ID
+    await _clearUserId(); // очищаем сохранённый ID
   }
 
   // Получить сохранённого пользователя (для авто-входа)
@@ -71,4 +71,5 @@ class AuthRepository {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_userIdKey);
   }
+
 }

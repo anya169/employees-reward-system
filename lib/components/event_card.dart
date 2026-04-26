@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../repositories/events_repository.dart';
 import '../screens/event_info_screen.dart';
 import '../styles/app_colors.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +13,7 @@ class EventCard extends StatelessWidget {
   final int eventPoints;
   final String date;
   final String category;
+  final EventRepository eventRepository;
 
   const EventCard({
     super.key,
@@ -20,7 +23,8 @@ class EventCard extends StatelessWidget {
     required this.imageName,
     required this.eventPoints,
     required this.date,
-    required this.category
+    required this.category,
+    required this.eventRepository
   });
 
   String _formatDate(String isoString) {
@@ -45,7 +49,7 @@ class EventCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => EventInfoScreen(id: id, name: name, description: description, imageName: imageName, eventPoints: eventPoints, date: _formatDate(date)),
+              builder: (context) => EventInfoScreen(id: id, name: name, description: description, imageName: imageName, eventPoints: eventPoints, date: _formatDate(date), eventRepository: eventRepository),
             ),
           );
         },

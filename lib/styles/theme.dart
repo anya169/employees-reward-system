@@ -63,7 +63,7 @@ class AppTheme {
 
   static ButtonStyle secondaryButton = OutlinedButton.styleFrom(
     foregroundColor: AppColors.blue,
-    backgroundColor: AppColors.white,
+    textStyle: lightTheme.textTheme.labelLarge,
     side: const BorderSide(color: AppColors.blue),
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     shape: RoundedRectangleBorder(
