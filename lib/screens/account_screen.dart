@@ -23,12 +23,18 @@ class AccountScreen extends StatelessWidget {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Обо мне'),
+        backgroundColor: AppColors.blue,
+        foregroundColor: AppColors.white,
+        centerTitle: true,
+      ),
       backgroundColor: AppColors.blueExtraLight,
       body: BlocBuilder<AccountCubit, AccountState>(
         builder: (context, state) {
           if (state is AccountInfoState) {
             return Padding(
-                padding: const EdgeInsets.only(top: 60, left: 12, right: 12),
+                padding: const EdgeInsets.only(top: 24, left: 12, right: 12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 12,

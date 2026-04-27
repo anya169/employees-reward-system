@@ -15,6 +15,12 @@ class ShopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.blueExtraLight,
+      appBar: AppBar(
+        title: const Text('Мерч нашей компании'),
+        backgroundColor: AppColors.blue,
+        foregroundColor: AppColors.white,
+        centerTitle: true,
+      ),
       body: BlocBuilder<ShopCubit, ShopState>(
         builder: (context, state) {
           if (state is ShopLoadingState) {

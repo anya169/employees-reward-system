@@ -18,6 +18,12 @@ class CalendarScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.blueExtraLight,
+      appBar: AppBar(
+        title: const Text('Мои мероприятия'),
+        backgroundColor: AppColors.blue,
+        foregroundColor: AppColors.white,
+        centerTitle: true,
+      ),
       body: BlocBuilder<CalendarCubit, CalendarState>(
         builder: (context, state) {
           if (state is CalendarLoadingState){

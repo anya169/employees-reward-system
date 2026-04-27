@@ -16,6 +16,12 @@ class EventScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final eventRepository = Provider.of<EventRepository>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Мероприятия в компании'),
+        backgroundColor: AppColors.blue,
+        foregroundColor: AppColors.white,
+        centerTitle: true,
+      ),
       backgroundColor: AppColors.blueExtraLight,
       body: BlocBuilder<EventsCubit, EventsState>(
         builder: (context, state) {

@@ -31,7 +31,6 @@ class RankingRepository {
             category:category_id(name)
           )
         ''');
-      print('Получено кодов: ${allCodes.length}');
       // Группируем баллы по пользователям и категориям
       final Map<String, Map<String, dynamic>> userStats = {};
 
@@ -42,7 +41,6 @@ class RankingRepository {
         final userId_code = user['id'];
         final category = event['category']['name'] as String;
         final points = event['points'] as int;
-        print('$category $points');
         if (!userStats.containsKey(userId_code)) {
           userStats[userId_code] = {
             'id': userId_code,
@@ -53,12 +51,10 @@ class RankingRepository {
             'categories': <String, int>{},
           };
         }
-        print(userStats);
 
         // Добавляем к баллам категории
         final categories = userStats[userId_code]!['categories'] as Map<String, int>;
         categories[category] = (categories[category] ?? 0) + points;
-        print(categories[category]);
       }
 
       // Сортируем пользователей по общим баллам для общего рейтинга
