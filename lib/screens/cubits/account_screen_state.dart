@@ -6,6 +6,7 @@ class AccountInfoState extends AccountState {
   final int currentPoints;
   final String? branch;
   final String? position;
+  final List<Map<String, dynamic>> codes;
 
   AccountInfoState({
     required this.fullname,
@@ -13,6 +14,6 @@ class AccountInfoState extends AccountState {
     required this.currentPoints,
     this.position,
     this.branch,
-
+    this.codes = const [],
   });
 }

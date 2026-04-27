@@ -1,12 +1,15 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
+import "package:individual_project/screens/cubits/account_screen_cubit.dart";
 import "../components/product_card.dart";
 import '../styles/app_colors.dart';
 import "cubits/shop_screen_cubit.dart";
 import "cubits/shop_screen_state.dart";
 
 class ShopScreen extends StatelessWidget {
-  const ShopScreen({super.key});
+  final AccountCubit accountCubit;
+
+  const ShopScreen({super.key, required this.accountCubit});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,6 @@ class ShopScreen extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(top: 60, left: 12, right: 12),
               child: SingleChildScrollView(
-                child: IntrinsicHeight(
                   child: Wrap(
                     spacing: 4,
                     runSpacing: 12,
@@ -47,13 +49,14 @@ class ShopScreen extends StatelessWidget {
                           imageName: product['image_name'],
                           price: product['price'],
                           count: product['count'],
+                          accountCubit: accountCubit,
                         ),
                       );
                     }).toList(),
                   ),
                 ),
-              ),
-            );
+              );
+
           }
 
           return Container();

@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         providers: [
           Provider<EventRepository>.value(value: eventsRepository),
           Provider<CodeRepository>.value(value: codeRepository),
+          Provider<ShopRepository>.value(value: shopRepository)
         ],
         child:
         MultiBlocProvider(

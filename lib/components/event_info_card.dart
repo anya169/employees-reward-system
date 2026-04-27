@@ -112,13 +112,6 @@ class _EventInfoCardState extends State<EventInfoCard> {
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  height: 200,
-                  color: Colors.grey[300],
-                  child: const Icon(Icons.image_not_supported),
-                );
-              },
             ),
           ),
           const SizedBox(height: 16),

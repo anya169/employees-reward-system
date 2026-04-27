@@ -82,8 +82,7 @@ class AccountScreen extends StatelessWidget {
 
                                         ScaffoldMessenger.of(context).showSnackBar(
                                             SnackBar(content: Text(message), backgroundColor: AppColors.blue));
-                                        accountCubit.updatePoints(newPoints, newCurrentPoints);
-
+                                        accountCubit.updatePointsAndRefreshCodes(newCurrentPoints: newCurrentPoints, newPoints: newPoints, userId: userId);
                                       }
                                       Navigator.pop(context);
                                     }
@@ -98,26 +97,6 @@ class AccountScreen extends StatelessWidget {
                     Divider(
                       color: AppColors.white,
                       thickness: 1,
-                    ),
-                    InfoCard(
-                      label: "Мои достижения",
-                      content:
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          spacing: 8,
-                          children: [
-                            Text(
-                              "Всего накоплено баллов: ${state.points}",
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            Text(
-                              "Текущее количество баллов: ${state.currentPoints}",
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                          ]
-                      ),
                     ),
                     InfoCard(
                       label: "Мои баллы",
@@ -140,25 +119,57 @@ class AccountScreen extends StatelessWidget {
                       ),
                     ),
                     InfoCard(
-                      label: "История начислений",
-                      content:
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          spacing: 8,
-                          children: [
-                            Text(
-                              "Всего накоплено баллов: ${state.points}",
-                              style: Theme.of(context).textTheme.bodyLarge,
+                      label: "Мои коды для предъявления",
+                      content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        spacing: 8,
+                        children: state.codes.isEmpty
+                            ? [
+                          Text(
+                            "У вас пока нет активных кодов",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          )
+                        ]
+                            : state.codes.map((code) {
+                          final productName = code['product']?['name'];
+                          final codeValue = code['code'];
+                          return Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: AppColors.blueExtraLight,
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            Text(
-                              "Текущее количество баллов: ${state.currentPoints}",
-                              style: Theme.of(context).textTheme.bodyLarge,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    productName,
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.blue,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: Text(
+                                    codeValue,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ]
+                          );
+                        }).toList(),
                       ),
-                    )
+                    ),
                   ],
                 )
 

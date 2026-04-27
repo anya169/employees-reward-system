@@ -66,8 +66,7 @@ class CodeRepository {
       };
 
     } catch (e) {
-      print('Error: $e');
-      return {};
+      return {'error': 'Произошла непредвиденная ошибка, повторите снова'};
     }
   }
 

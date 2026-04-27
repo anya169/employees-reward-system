@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     _screens = [
       const EventScreen(),
       const CalendarScreen(),
-      const ShopScreen(),
+      ShopScreen(accountCubit: widget.accountCubit),
       const RewardsScreen(),
       BlocProvider.value(
         value: widget.accountCubit,

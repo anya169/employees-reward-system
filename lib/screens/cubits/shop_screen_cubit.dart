@@ -6,11 +6,11 @@ class ShopCubit extends Cubit<ShopState> {
   final ShopRepository _shopRepository;
 
   ShopCubit(this._shopRepository) : super(ShopLoadingState()) {
-    _getCurrentShop();
+    getCurrentShop();
   }
 
   // Получение текущих товаров из бд
-  Future<void> _getCurrentShop() async {
+  Future<void> getCurrentShop() async {
     final products = await _shopRepository.getCurrentProducts();
     emit(ShopInfoState(productsArray: products));
   }
