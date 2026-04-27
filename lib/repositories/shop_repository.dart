@@ -98,7 +98,7 @@ class ShopRepository {
           .eq('user_id', userId)
           .eq('is_used', false);
 
-      if (response != null && response.isNotEmpty) {
+      if (response.isNotEmpty) {
         return List<Map<String, dynamic>>.from(response);
       }
       return [];

@@ -3,12 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/repositories/auth_repository.dart';
 import 'package:individual_project/repositories/code_repository.dart';
 import 'package:individual_project/repositories/events_repository.dart';
+import 'package:individual_project/repositories/ranking_repository.dart';
 import 'package:individual_project/repositories/shop_repository.dart';
 import 'package:individual_project/screens/auth_screen_provider.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/auth_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/calendar_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/events_screen_cubit.dart';
+import 'package:individual_project/screens/cubits/ranking_screen_cubit.dart';
 import 'package:individual_project/screens/cubits/shop_screen_cubit.dart';
 import 'package:individual_project/styles/theme.dart';
 import 'package:provider/provider.dart';
@@ -34,12 +36,14 @@ class MyApp extends StatelessWidget {
     final eventsRepository = EventRepository(authRepository);
     final shopRepository = ShopRepository();
     final codeRepository = CodeRepository();
+    final rankingRepository = RankingRepository(authRepository);
 
     return MultiProvider(
         providers: [
           Provider<EventRepository>.value(value: eventsRepository),
           Provider<CodeRepository>.value(value: codeRepository),
-          Provider<ShopRepository>.value(value: shopRepository)
+          Provider<ShopRepository>.value(value: shopRepository),
+          Provider<RankingRepository>.value(value: rankingRepository),
         ],
         child:
         MultiBlocProvider(
@@ -47,7 +51,8 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => AuthCubit(authRepository)),
             BlocProvider(create: (context) => EventsCubit(eventsRepository)),
             BlocProvider(create: (context) => ShopCubit(shopRepository)),
-            BlocProvider(create: (context) => CalendarCubit(eventsRepository))
+            BlocProvider(create: (context) => CalendarCubit(eventsRepository)),
+            BlocProvider(create: (context) => RankingCubit(rankingRepository)),
           ],
           child:
           MaterialApp(

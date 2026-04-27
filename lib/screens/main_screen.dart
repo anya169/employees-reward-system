@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:individual_project/screens/account_screen.dart';
 import 'package:individual_project/screens/cubits/account_screen_cubit.dart';
+import 'package:individual_project/screens/ranking_screen.dart';
 import 'package:individual_project/screens/shop_screen.dart';
 import '../styles/app_colors.dart';
 import 'calendar_screen.dart';
@@ -29,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
       const EventScreen(),
       const CalendarScreen(),
       ShopScreen(accountCubit: widget.accountCubit),
-      const RewardsScreen(),
+      const RankingScreen(),
       BlocProvider.value(
         value: widget.accountCubit,
         child: const AccountScreen(),
@@ -80,12 +81,3 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 
-
-class RewardsScreen extends StatelessWidget {
-  const RewardsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Рейтинги'));
-  }
-}
